@@ -1,12 +1,14 @@
 require "nvchad.mappings"
 local telescope = require("telescope.builtin")
 
--- add yours here
-
 local map = vim.keymap.set
 
+-- To enter command mode without using Shift
 map("n", ";", ":", { desc = "CMD enter command mode" })
+-- To get out of insert mode using jk (closer than ESC)
 map("i", "jk", "<ESC>")
+-- To save the current file with Ctrl+s in any mode
+map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
 
 -- To search files tracked by git
 map("n", "<C-p>", telescope.git_files, {})
@@ -32,4 +34,6 @@ map("n", "N", "Nzzzv")
 map("n", "<leader>db", "<cmd> DapToggleBreakpoint <CR>")
 map("n", "<leader>dbp", require("dap-python").test_method)
 
--- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
+-- Use Shift+y to yank into system clipboard
+map("v", "Y", "\"+y")
+
