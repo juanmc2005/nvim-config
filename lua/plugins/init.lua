@@ -22,7 +22,7 @@ return {
   			"black", "lua-language-server", "stylua",
   			"html-lsp", "css-lsp" , "prettier",
             "rust-analyzer", "pyright",
-            "mypy", "ruff", "debugpy",
+            "ruff", "debugpy",
   		},
   	},
   },
@@ -105,5 +105,20 @@ return {
             highlighter = wilder.basic_highlighter(),
         }))
     end,
-  }
+  },
+
+  {
+    "rust-lang/rust.vim",
+    ft = "rust",
+    init = function()
+      vim.g.rustfmt_autosave = 1
+    end,
+  },
+
+  {
+    'mrcjkb/rustaceanvim',
+    dependencies = "neovim/nvim-lspconfig",
+    version = '^4',
+    ft = { 'rust' },
+  },
 }

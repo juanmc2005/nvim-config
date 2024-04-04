@@ -37,3 +37,9 @@ map("n", "<leader>dbp", require("dap-python").test_method)
 -- Use Shift+y to yank into system clipboard
 map("v", "Y", "\"+y")
 
+-- To run rust projects
+map("n", "<leader>r", "<cmd> RustLsp runnables <CR>")
+
+-- To search for references in the project
+map("n", "gu", require('telescope.builtin').lsp_references)
+
